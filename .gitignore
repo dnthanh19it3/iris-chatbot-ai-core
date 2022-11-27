@@ -1,6 +1,6 @@
 tflearn_logs
 .vscode
-model
+model/*
 checkpoint
 .idea
 __pycache__
