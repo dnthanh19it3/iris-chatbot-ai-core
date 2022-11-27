@@ -1,0 +1,168 @@
+{
+  "intents": [
+    {
+      "tag": "#hocvu",
+      "patterns": [
+        "Tra cứu điểm",
+        "Điểm học kỳ vừa rồi",
+        "Điểm thi của tôi",
+        "Điểm xét học vụ",
+        "Điểm của tôi",
+        "Tra điểm",
+        "Cho tôi biết kết quả học tập của tôi",
+        "Điểm của tôi trong học kì vừa qua",
+        "Kết quả học tập",
+        "Thành tích học tập của tôi",
+        "Điểm các học kì vừa qua",
+        "Điểm của tôi như thế nào vậy"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "#hocphi",
+      "patterns": [
+        "Học phí của tôi",
+        "Tiền học phí",
+        "Học phí của tôi",
+        "Học phí bao nhiêu",
+        "Thông tin về học phí",
+        "Học phí tôi cần đóng là bao nhiêu",
+        "Tình trạng đóng học phí",
+        "Học phí kì học hiện tại",
+        "Sao kê học phí",
+        "Học phí",
+        "Kết quả học phí là bao nhiêu",
+        "Muốn đóng tiền học",
+        "Tiền học của tôi bao nhiêu tiền",
+        "Tiền học",
+        "Sao kê",
+        "Sao kê học phí"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "#chaohoi",
+      "patterns": [
+        "Chào bạn",
+        "Xin chào",
+        "Chào VKU",
+        "Chào buổi sáng",
+        "Chào buổi sáng",
+        "Chào buổi sáng",
+        "Chào buổi sáng"
+      ],
+      "responses": [
+        "Chào bạn, chúc bạn một ngày vui vẻ",
+        "Chúc bạn có một ngày làm việc hiệu quả, đạt được nhiều kết quả cao",
+        "Chào buổi sáng VKUers 😊"
+      ]
+    },
+    {
+      "tag": "#chuibay",
+      "patterns": [
+        "Cặt",
+        "Lồn",
+        "Chim",
+        "Bướm",
+        "Địt mẹ mày",
+        "Đụ má",
+        "Có cái lon",
+        "Thằng ranh con này",
+        "Đụ con đĩ mẹ mày",
+        "Lon"
+      ],
+      "responses": [
+        "Địt mẹ mày chửi thề con cặt, tao có súng đó",
+        "Địt mẹ mày nay mùng 1 tao ăn chay chứ không mày chết mẹ mày",
+        "Có cái lồn",
+        "Địt mẹ mày thằng zo zan qua'",
+        "Sửa cái lồn",
+        "Chửi con đĩ mẹ mày à?",
+        "Mất dạy ít thôi ranh con",
+        "Địt bố tiên sư nhà mày"
+      ]
+    },
+    {
+      "tag": "#tuyensinh",
+      "patterns": [
+        "Thông tin tuyển sinh",
+        "Kế hoạch tuyển sinh 2022",
+        "Tuyển sinh 2022",
+        "Cho tôi biết thêm về thông tin tuyển sinh",
+        "Kế hoạch tuyển sinh năm nay"
+      ],
+      "responses": [
+        "Để biết thêm về thông tin tuyển sinh vui bạn có thể truy cập tuyensinh.vku.udn.vn để biết thêm thông tin."
+      ]
+    },
+    {
+      "tag": "#tkb_ngay",
+      "patterns": [
+        "hôm nay học gì",
+        "Thời khoá biểu hôm nay",
+        "Thông tin lịch học",
+        "Ngày nay học gì",
+        "Các môn học hôm nay",
+        "Hôm nay tôi có môn gì vậy",
+        "Cho em xin thông tin thời khoá biểu",
+        "Lịch học ngày nay ra sao",
+        "Thời gian học",
+        "Tôi còn môn gì trong ngày",
+        "Nhưng môn học trong ngày"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "#tkb_tuan",
+      "patterns": [
+        "Lịch học tuần này",
+        "Tuần này học gì",
+        "Lịch trình tuần",
+        "Kế hoạch tuần này",
+        "Lịch trình học tuần này",
+        "Kế hoạch học tuần này"
+      ],
+      "responses": []
+    },
+    {
+      "tag": "#nghiavu",
+      "patterns": [
+        "Thủ tục hoãn nghĩa vụ quân sự",
+        "Xin giấy xác nhận học tập",
+        "Nghĩa vụ",
+        "Xin giấy tạm hoãn nghĩa vụ",
+        "Xin giấy tạm hoãn nghĩa vụ"
+      ],
+      "responses": [
+        "Để hoãn nghịa vụ bạn cần truy cập vào daotao.vku.udn.vn/sv/thu-tuc-mot-cua/hoan-nghia-vu điền đầy đủ thông tin. Thời gian nhận kết quả trong vòng 7 ngày kể từ ngày đăng kí."
+      ]
+    },
+    {
+      "tag": "#phuckhao",
+      "patterns": [
+        "Thủ tục phúc khảo",
+        "Em muốn phúc khảo điểm",
+        "Em muốn xem xét lại về điểm",
+        "Xin giấy tạm hoãn nghĩa vụ",
+        "Xin giấy tạm hoãn nghĩa vụ"
+      ],
+      "responses": [
+        "để phúc khảo điểm bạn cần blah blah blah"
+      ]
+    },
+    {
+      "tag": "#ruttinchi",
+      "patterns": [
+        "Tín chỉ quốc phòng",
+        "Tín chỉ ngoại ngữ",
+        "Tín chỉ tin học",
+        "Bằng tốt nghiệm",
+        "Thủ tục rút bằng như thế nào ạ",
+        "Em muốn rút bằng phải làm sao",
+        "Bằng tốt nghiệp em cho hỏi phải làmm như thế nào để rút ạ",
+        "Bằng tốt nghiệp em cho hỏi phải làmm như thế nào để rút ạ"
+      ],
+      "responses": []
+    }
+  ]
+}
