@@ -1,4 +1,5 @@
 # things we need for NLP
+import nil
 from nltk.stem.lancaster import LancasterStemmer
 from underthesea import word_tokenize
 
@@ -21,7 +22,7 @@ import pickle
 
 
 
-def train():
+def train(project_id):
     # with open('intents.json', encoding='utf-8') as json_data:
     #     intents = json.load(json_data)
 
@@ -94,15 +95,19 @@ def train():
     # Build neural network
     net = tflearn.input_data(shape=[None, len(train_x[0])])
     net = tflearn.fully_connected(net, 8)
-    # net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 8)
+    net = tflearn.fully_connected(net, 8)
     net = tflearn.fully_connected(net, len(train_y[0]), activation="softmax")
     net = tflearn.regression(net)
 
     # Define model and setup tensorboard
     model = tflearn.DNN(net, tensorboard_dir="tflearn_logs")
     # Start training (apply gradient descent algorithm)
-    model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True)
-    model.save("model/model.tflearn")
+    model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True, snapshot_epoch=False)
+    model.save("model/" + project_id +"/model.tflearn")
 
     # save all of our data structures
 

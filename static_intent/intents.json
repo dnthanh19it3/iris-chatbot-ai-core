@@ -163,6 +163,29 @@
         "Bằng tốt nghiệp em cho hỏi phải làmm như thế nào để rút ạ"
       ],
       "responses": []
+    },
+    {
+      "tag": "#thattinh",
+      "patterns": [
+        "Thất tình",
+        "Tôi thất tình rồi bạn yêu dấu",
+        "Buồn tình quá",
+        "Tôi nhớ người yêu cũ",
+        "Nhạc gì nghe cho đỡ thất tình đây",
+        "Mới chia tay người yêu",
+        "Yêu đậm sâu rồi cũng chia tay",
+        "Cuộc sống đâu ai hay chữ ngỡ",
+        "Tình tan rồi",
+        "Tôi vừa chia tay người yêu",
+        "Tình yêu làm cho người ta đau khổ"
+      ],
+      "responses": [
+        "Mất em bên đời hết vui =))",
+        "Yêu đương đéo gì, nó thả thính em đấy thôi",
+        "Thích là nhích, đàn ông là phải thế",
+        "Kiếm con khác đi, ngon hơn nhiều",
+        "Giờ này mà còn thất tình, tội nghiệp. 2022 rồi mà?"
+      ]
     }
   ]
 }

@@ -47,16 +47,22 @@ class Predict:
                 return json.dumps({"status": "1", "message": "Đã khởi chạy", "detail": "Kiểm tra máy chủ có đang hoạt động hay không"})
             else:
                 return json.dumps({"status": "0", "message": "Chưa khởi chạy", "detail": "Kiểm tra máy chủ có đang hoạt động hay không"})
-
-        @app.route("/predict")
-        def predict():
+        @app.route("/<project_id>/predict")
+        def predict(project_id):
             # if(this.init_flag != 1):
             #     try:
             #         self.initPredictEngine()
             #     except Exception as e:
             #         return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
+            try:
+                self.initPredictEngine(project_id)
+                # return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
+            except Exception as e:
+                print(e)
+                # return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
 
             input_data = request.args.get('msg')
+            project_data = request.args.get('project_id')
             class_name = this.classify(input_data)
             response_content = this.response(input_data)
             # print("Content is: ")
@@ -71,24 +77,24 @@ class Predict:
             output_data = {"type": command, "class": class_name, "response": response_content}
             return json.dumps(output_data)
 
-        @app.route("/train_app")
-        def train_app():
+        @app.route("/train_app/<project_id>")
+        def train_app(project_id):
             try:
-                train.train()
+                train.train(project_id)
                 return json.dumps({"status": "1", "message": "Train thành công!"})
             except Exception as e:
                 return json.dumps({"status": "0", "message": "Train thất bại!", "detail": str(e)})
 
-        @app.route("/init")
-        def init_predict():
-            try:
-                self.initPredictEngine()
-                return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
-            except Exception as e:
-                return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
+        # @app.route("/init")
+        # def init_predict():
+            # try:
+            #     self.initPredictEngine()
+            #     return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
+            # except Exception as e:
+            #     return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
         app.run()
 
-    def initPredictEngine(self):
+    def initPredictEngine(self, project_id):
         try:
             print("---"*10)
             print("Start loading")
@@ -101,7 +107,7 @@ class Predict:
             self.train_y = self.data['train_y']
             # with open('intents.json', encoding='utf-8') as self.json_data:
             #     self.intents = json.load(self.json_data)
-            self.intents = getjson.getJson()
+            self.intents = getjson.getJson(project_id)
             # Build neural network
             self.net = tflearn.input_data(shape=[None, len(self.train_x[0])])
             self.net = tflearn.fully_connected(self.net, 8)
@@ -111,7 +117,7 @@ class Predict:
             # Define model and setup tensorboard
             self.model = tflearn.DNN(self.net, tensorboard_dir='tflearn_logs')
             # load our saved model
-            self.model.load('./model/model.tflearn')
+            self.model.load('./model/' + project_id + '/model.tflearn')
             self.init_flag = 1
             endTime = datetime.now()
             print("---"*10)
