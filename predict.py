@@ -160,7 +160,8 @@ class Predict:
         try:
             results = self.model.predict([self.bow(sentence, self.words)])[0]
         except Exception as e:
-            self.initPredictEngine()
+            print(e)
+            # self.initPredictEngine()
         # filter out predictions below a threshold
         results = [[i,r] for i,r in enumerate(results) if r > self.ERROR_THRESHOLD]
         # sort by strength of probability
