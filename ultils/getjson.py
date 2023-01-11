@@ -1,5 +1,5 @@
 import urllib.request, json
-def getJson():
+def getJson(project_id = 0):
     # with urllib.request.urlopen("http://localhost/zalo-chatbot/export") as url:
     #     data = json.loads(url.read().decode())
     #     return data

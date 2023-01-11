@@ -31,16 +31,12 @@ class Predict:
     context = {}
     ERROR_THRESHOLD = 0.25
     intents = None
-
     init_flag = 0
-
     def __init__(self):
         app = Flask(__name__)
         app.config["DEBUG"] = True
         CORS(app)
         this = self
-
-
         @app.route("/")
         def main():
             if (this.init_flag == 1):
@@ -49,25 +45,14 @@ class Predict:
                 return json.dumps({"status": "0", "message": "Chưa khởi chạy", "detail": "Kiểm tra máy chủ có đang hoạt động hay không"})
         @app.route("/<project_id>/predict")
         def predict(project_id):
-            # if(this.init_flag != 1):
-            #     try:
-            #         self.initPredictEngine()
-            #     except Exception as e:
-            #         return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
             try:
                 self.initPredictEngine(project_id)
-                # return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
             except Exception as e:
                 print(e)
-                # return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
-
             input_data = request.args.get('msg')
             project_data = request.args.get('project_id')
             class_name = this.classify(input_data)
             response_content = this.response(input_data)
-            # print("Content is: ")
-            # print(type(this.response(input_data)))
-            # print("End Content")
 
             command = 0
 
@@ -84,14 +69,6 @@ class Predict:
                 return json.dumps({"status": "1", "message": "Train thành công!"})
             except Exception as e:
                 return json.dumps({"status": "0", "message": "Train thất bại!", "detail": str(e)})
-
-        # @app.route("/init")
-        # def init_predict():
-            # try:
-            #     self.initPredictEngine()
-            #     return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
-            # except Exception as e:
-            #     return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
         app.run(host="0.0.0.0")
 
     def initPredictEngine(self, project_id):
@@ -105,8 +82,6 @@ class Predict:
             self.classes = self.data['classes']
             self.train_x = self.data['train_x']
             self.train_y = self.data['train_y']
-            # with open('intents.json', encoding='utf-8') as self.json_data:
-            #     self.intents = json.load(self.json_data)
             self.intents = getjson.getJson(project_id)
             # Build neural network
             self.net = tflearn.input_data(shape=[None, len(self.train_x[0])])
@@ -126,16 +101,13 @@ class Predict:
             print("BREAK: " + str(e))
             print("---"*10, "Something went wrong")
             return 0
-
         return 1
-
     def clean_up_sentence(self, sentence):
         # tokenize the pattern
         sentence_words = word_tokenize(sentence)
         # stem each word
         sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
         return sentence_words
-
     # return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
     def bow(self, sentence, words, show_details=False):
         # tokenize the pattern
@@ -150,13 +122,10 @@ class Predict:
                         # print ("found in bag: %s" % w)
 
         return(np.array(bag))
-
-
-
 # create a data structure to hold user context
-
     def classify(self, sentence):
         # generate probabilities from the model
+        results = []
         try:
             results = self.model.predict([self.bow(sentence, self.words)])[0]
         except Exception as e:
@@ -196,8 +165,6 @@ class Predict:
                                 return None
                 results.pop(0)
         return results
-
-
 app = Predict()
 
 

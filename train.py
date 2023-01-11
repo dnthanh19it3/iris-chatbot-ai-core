@@ -94,11 +94,6 @@ def train(project_id):
     # Build neural network
     net = tflearn.input_data(shape=[None, len(train_x[0])])
     net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
-    net = tflearn.fully_connected(net, 8)
     net = tflearn.fully_connected(net, len(train_y[0]), activation="softmax")
     net = tflearn.regression(net)
 
