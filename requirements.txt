@@ -1,6 +1,7 @@
 numpy
 tflearn
 flask
+flask_cors
 underthesea
 nltk
 datetime

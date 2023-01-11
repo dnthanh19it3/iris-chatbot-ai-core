@@ -1,5 +1,4 @@
 # things we need for NLP
-import nil
 from nltk.stem.lancaster import LancasterStemmer
 from underthesea import word_tokenize
 
