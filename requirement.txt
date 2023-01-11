@@ -1,6 +1,5 @@
 numpy
 tflearn
-pickle
 flask
 underthesea
 nltk
