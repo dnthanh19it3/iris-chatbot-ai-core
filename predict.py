@@ -92,7 +92,7 @@ class Predict:
             #     return json.dumps({"status": "1", "message": "Khởi chạy thành công!", "detail": "None"})
             # except Exception as e:
             #     return json.dumps({"status": "0", "message": "Khởi chạy thất bại!", "detail": str(e)})
-        app.run()
+        app.run(host="0.0.0.0")
 
     def initPredictEngine(self, project_id):
         try:
