@@ -58,31 +58,6 @@
       ]
     },
     {
-      "tag": "#chuibay",
-      "patterns": [
-        "Cặt",
-        "Lồn",
-        "Chim",
-        "Bướm",
-        "Địt mẹ mày",
-        "Đụ má",
-        "Có cái lon",
-        "Thằng ranh con này",
-        "Đụ con đĩ mẹ mày",
-        "Lon"
-      ],
-      "responses": [
-        "Địt mẹ mày chửi thề con cặt, tao có súng đó",
-        "Địt mẹ mày nay mùng 1 tao ăn chay chứ không mày chết mẹ mày",
-        "Có cái lồn",
-        "Địt mẹ mày thằng zo zan qua'",
-        "Sửa cái lồn",
-        "Chửi con đĩ mẹ mày à?",
-        "Mất dạy ít thôi ranh con",
-        "Địt bố tiên sư nhà mày"
-      ]
-    },
-    {
       "tag": "#tuyensinh",
       "patterns": [
         "Thông tin tuyển sinh",

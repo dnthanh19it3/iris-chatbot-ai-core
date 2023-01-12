@@ -25,7 +25,7 @@ def train(project_id):
     # with open('intents.json', encoding='utf-8') as json_data:
     #     intents = json.load(json_data)
 
-    intents = getjson.getJson()
+    intents = getjson.getJson(project_id)
 
     words = []
     classes = []

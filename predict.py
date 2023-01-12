@@ -34,7 +34,7 @@ class Predict:
     init_flag = 0
     def __init__(self):
         app = Flask(__name__)
-        app.config["DEBUG"] = False
+        app.config["DEBUG"] = True
         CORS(app)
         this = self
         @app.route("/")
@@ -79,7 +79,7 @@ class Predict:
             self.classes = self.data['classes']
             self.train_x = self.data['train_x']
             self.train_y = self.data['train_y']
-            self.intents = getjson.getJson(project_id)
+            self.intents = getjson.getStaticJson(project_id)
             # Build neural network
             self.net = tflearn.input_data(shape=[None, len(self.train_x[0])])
             self.net = tflearn.fully_connected(self.net, 8)
