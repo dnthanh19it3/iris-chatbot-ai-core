@@ -34,7 +34,7 @@ class Predict:
     init_flag = 0
     def __init__(self):
         app = Flask(__name__)
-        app.config["DEBUG"] = True
+        app.config["DEBUG"] = False
         CORS(app)
         this = self
         @app.route("/")
@@ -73,9 +73,6 @@ class Predict:
 
     def initPredictEngine(self, project_id):
         try:
-            print("---"*10)
-            print("Start loading")
-            print("---"*10)
             startTime = datetime.now()
             self.data = pickle.load(open("training_data", "rb"))
             self.words = self.data['words']
@@ -95,11 +92,8 @@ class Predict:
             self.model.load('./model/' + project_id + '/model.tflearn')
             self.init_flag = 1
             endTime = datetime.now()
-            print("---"*10)
-            print("end loading", startTime, endTime)
         except Exception as e:
-            print("BREAK: " + str(e))
-            print("---"*10, "Something went wrong")
+            print(e)
             return 0
         return 1
     def clean_up_sentence(self, sentence):
@@ -118,8 +112,6 @@ class Predict:
             for i,w in enumerate(words):
                 if w == s:
                     bag[i] = 1
-                    # if show_details:
-                        # print ("found in bag: %s" % w)
 
         return(np.array(bag))
 # create a data structure to hold user context
@@ -139,7 +131,6 @@ class Predict:
         for r in results:
             return_list.append((self.classes[r[0]], np.float64(r[1])))
         # return tuple of intent and probability
-        print("OK1")
         return return_list
 
     def response(self, sentence, userID='123', show_details=False):
