@@ -1,7 +1,7 @@
 # things we need for NLP
+import os
 from nltk.stem.lancaster import LancasterStemmer
 from underthesea import word_tokenize
-
 from ultils import getjson
 
 stemmer = LancasterStemmer()
@@ -21,11 +21,13 @@ import pickle
 
 
 
-def train(project_id):
+def train(project_id=1):
     # with open('intents.json', encoding='utf-8') as json_data:
     #     intents = json.load(json_data)
 
     intents = getjson.getJson(project_id)
+
+    print(intents)
 
     words = []
     classes = []
@@ -99,9 +101,11 @@ def train(project_id):
 
     # Define model and setup tensorboard
     model = tflearn.DNN(net, tensorboard_dir="tflearn_logs")
+    input("Please stop")
     # Start training (apply gradient descent algorithm)
     model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True, snapshot_epoch=False)
-    model.save("model/" + project_id +"/model.tflearn")
+    model.save("model/{}/model.tflearn".format(str(project_id) + "test"))
+
 
     # save all of our data structures
 
@@ -113,7 +117,7 @@ def train(project_id):
 
 
 def main():
-    train()
+    train(1)
 
 
 if __name__ == "__main__":

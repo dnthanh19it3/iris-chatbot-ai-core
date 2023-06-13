@@ -1,6 +1,9 @@
-numpy
+tensorflow-cpu
 tflearn
+nltk
+underthesea
+numpy
+chardet
+python-dotenv
 flask
 flask_cors
-underthesea
-nltk

@@ -1,14 +1,18 @@
 import urllib.request, json
-def getJson(project_id):
-    with urllib.request.urlopen("https://irisbot.iristech.live/console/get-dataset/" + project_id) as url:
-    # with urllib.request.urlopen("http://localhost/console/get-dataset/" + project_id) as url:
+import os
+from dotenv import load_dotenv, find_dotenv, dotenv_values
+
+#GET ENV VARIABLE
+load_dotenv('.env')
+BASE_URL = os.environ.get("BASE_URL")
+
+def getJson(project_id='1'):
+    urlIntent = "{}console/get-dataset/{}".format(BASE_URL, project_id)
+    with urllib.request.urlopen(urlIntent) as url:
         data = json.loads(url.read().decode())
-        print("Got intent")
-        with open('static_intent/' + project_id + '.json', 'w',  encoding='utf8') as f:
-            json.dump(data, f)
         return data
 
-def getStaticJson(project_id):
-    with open('static_intent/' + project_id + '.json', 'r', encoding='utf8') as json_data:
+def getStaticJson(project_id='1'):
+    with open('static_intent/{}.json'.format(project_id), 'r', encoding='utf8') as json_data:
         data = json.load(json_data)
         return data

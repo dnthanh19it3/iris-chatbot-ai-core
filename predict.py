@@ -1,4 +1,6 @@
 # things we need for NLP
+import os
+
 from flask_cors import CORS
 from nltk.stem.lancaster import LancasterStemmer
 from underthesea import word_tokenize
@@ -66,10 +68,10 @@ class Predict:
         def train_app(project_id):
             try:
                 train.train(project_id)
-                return json.dumps({"status": "1", "message": "Train thành công!"})
+                return json.dumps({"status": "1"    , "message": "Train thành công!"})
             except Exception as e:
                 return json.dumps({"status": "0", "message": "Train thất bại!", "detail": str(e)})
-        app.run(host="0.0.0.0")
+        app.run(host="0.0.0.0", port='5000')
 
     def initPredictEngine(self, project_id):
         try:
