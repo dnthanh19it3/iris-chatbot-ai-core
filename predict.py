@@ -68,7 +68,7 @@ class Predict:
         def train_app(project_id):
             try:
                 train.train(project_id)
-                return json.dumps({"status": "1"    , "message": "Train thành công!"})
+                return json.dumps({"status": "1", "message": "Train thành công!"})
             except Exception as e:
                 return json.dumps({"status": "0", "message": "Train thất bại!", "detail": str(e)})
         app.run(host="0.0.0.0", port='5000')

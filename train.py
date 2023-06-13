@@ -104,7 +104,7 @@ def train(project_id=1):
     input("Please stop")
     # Start training (apply gradient descent algorithm)
     model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True, snapshot_epoch=False)
-    model.save("model/{}/model.tflearn".format(str(project_id) + "test"))
+    model.save("model/{}/model.tflearn".format(str(project_id)))
 
 
     # save all of our data structures
