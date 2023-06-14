@@ -101,7 +101,6 @@ def train(project_id=1):
 
     # Define model and setup tensorboard
     model = tflearn.DNN(net, tensorboard_dir="tflearn_logs")
-    input("Please stop")
     # Start training (apply gradient descent algorithm)
     model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True, snapshot_epoch=False)
     model.save("model/{}/model.tflearn".format(str(project_id)))
